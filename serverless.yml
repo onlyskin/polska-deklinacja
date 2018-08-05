@@ -1,0 +1,13 @@
+# serverless.yml
+
+service: polski
+
+provider:
+  name: aws
+  runtime: python2.7
+
+functions:
+  polski-numbers:
+    handler: main.execute
+    events:
+      - http: GET number
