@@ -147,6 +147,11 @@ class Dictionary:
                 u'ryba': { GENDER: FEMININE, },
                 u'jezioro': { GENDER: NEUTER, },
                 u'dziecko': { GENDER: MIXED, },
+                u'profesor': { GENDER: M_HUMAN, },
+                u'pies': { GENDER: M_ANIMATE, },
+                u'sklep': { GENDER: M_INANIMATE, },
+                u'dziewczyna': { GENDER: FEMININE, },
+                u'pytanie': { GENDER: NEUTER, },
                 }
 
     def random_word(self):
