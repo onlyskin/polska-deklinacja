@@ -1,0 +1,8 @@
+SINGULAR = u's'
+PLURAL = u'p'
+NOMINATIVE = u'nominative '
+ACCUSATIVE = u'accusative '
+GENITIVE = u'genitive '
+DATIVE = u'dative '
+INSTRUMENTAL = u'instrumental '
+LOCATIVE = u'locative '
