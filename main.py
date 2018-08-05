@@ -13,8 +13,11 @@ html_template = u'''
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <script>
+function reveal() {{ document.getElementById('answer').style['font-size'] = '2rem';}}
+    </script>
     <div style="font-size: 2rem; font-family: 'sans-serif';">{}</div>
-    <button onclick="function() {{ document.getElementbyId('answer').style['font-size'] = '2rem';}}"
+    <button onclick="reveal()">Get Answer</button>
     <div id="answer" style="font-size: 0rem; font-family: 'sans-serif';">{}</div>
   </body>
 </html>
@@ -24,16 +27,17 @@ def execute(event, context):
     case, number, noun = get_question()
     declined_number, declined_noun = get_answer(case, number, noun)
 
-    print case, number, noun
-    print declined_number, declined_noun
-
     question = u'{}: {} {}'.format(
             phrase_for_case(case),
             string_for_number(number),
             noun,
             )
 
-    answer = u'{}, {}'.format(declined_number, declined_noun)
+    answer = u'{} {} {}'.format(
+            phrase_for_case(case),
+            declined_number,
+            declined_noun,
+            )
 
     response = {
         u'statusCode': 200,

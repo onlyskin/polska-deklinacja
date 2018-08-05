@@ -11,4 +11,3 @@ def test_it_gets_a_question():
     assert re.search(r'^[^\s]* ', div_contents)
     assert re.search(r' [12] ', div_contents)
     assert re.search(r' [^\s]*$', div_contents)
-    assert 0

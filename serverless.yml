@@ -2,9 +2,16 @@
 
 service: polski
 
+plugins:
+  - serverless-python-requirements
+
 provider:
   name: aws
   runtime: python2.7
+
+custom:
+  pythonRequirements:
+    dockerizePip: false
 
 functions:
   polski-numbers:
