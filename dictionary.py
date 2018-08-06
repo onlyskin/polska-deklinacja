@@ -142,16 +142,25 @@ class Dictionary:
                 }
         self._dictionary = {
                 u'filozof': { GENDER: M_HUMAN, },
-                u'kot': { GENDER: M_ANIMATE, },
-                u'dom': { GENDER: M_INANIMATE, },
-                u'ryba': { GENDER: FEMININE, },
-                u'jezioro': { GENDER: NEUTER, },
-                u'dziecko': { GENDER: MIXED, },
+                u'mężczyzna': { GENDER: M_HUMAN, },
                 u'profesor': { GENDER: M_HUMAN, },
+                u'kot': { GENDER: M_ANIMATE, },
                 u'pies': { GENDER: M_ANIMATE, },
+                u'ptak': { GENDER: M_ANIMATE, },
+                u'dom': { GENDER: M_INANIMATE, },
                 u'sklep': { GENDER: M_INANIMATE, },
+                u'świat': { GENDER: M_INANIMATE, },
+                u'dzień': { GENDER: M_INANIMATE, },
+                u'ryba': { GENDER: FEMININE, },
                 u'dziewczyna': { GENDER: FEMININE, },
+                u'woda': { GENDER: FEMININE, },
+                u'herbata': { GENDER: FEMININE, },
+                u'ręka': { GENDER: FEMININE, },
+                u'jezioro': { GENDER: NEUTER, },
                 u'pytanie': { GENDER: NEUTER, },
+                u'światło': { GENDER: NEUTER, },
+                u'okno': { GENDER: NEUTER, },
+                u'dziecko': { GENDER: MIXED, },
                 }
 
     def random_word(self):
