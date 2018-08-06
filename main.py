@@ -14,16 +14,37 @@ html_template = u'''
   </head>
   <body>
     <script>
-function reveal() {{ document.getElementById('answer').style['font-size'] = '2rem';}}
+function reveal(index) {{ document.getElementById('answer' + index).style['font-size'] = '2rem';}}
     </script>
-    <div style="font-size: 2rem; font-family: 'sans-serif';">{}</div>
-    <button onclick="reveal()">Get Answer</button>
-    <div id="answer" style="font-size: 0rem; font-family: 'sans-serif';">{}</div>
+    {}
   </body>
 </html>
 '''
 
+div_template = u'''
+<div style="font-size: 2rem; font-family: 'sans-serif';">{question}</div>
+<button onclick="reveal({index})">Get Answer</button>
+<div id="answer{index}" style="font-size: 0rem; font-family: 'sans-serif';">{answer}</div>
+<hr>'''
+
 def execute(event, context):
+    content = make_question_divs(10)
+    body = html_template.format(content)
+
+    response = {
+        u'statusCode': 200,
+        u'body': body,
+        u'headers': {
+            u'Content-Type': u'text/html',
+        },
+    }
+
+    return response
+
+def make_question_divs(count):
+    return reduce(lambda a, b: a + make_question_div(b), range(count), '')
+
+def make_question_div(index):
     case, number, noun = get_question()
     declined_number, declined_noun = get_answer(case, number, noun)
 
@@ -39,15 +60,7 @@ def execute(event, context):
             declined_noun,
             )
 
-    response = {
-        u'statusCode': 200,
-        u'body': html_template.format(question, answer),
-        u'headers': {
-            u'Content-Type': u'text/html',
-        },
-    }
-
-    return response
+    return div_template.format(question=question, index=index, answer=answer)
 
 def get_question():
     phrases = [u'Jest/są', u'Widzę', u'Nie mam', u'Daj', u'Mieszkam z', u'Myślę o']
